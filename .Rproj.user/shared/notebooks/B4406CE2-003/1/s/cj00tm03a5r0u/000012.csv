@@ -1,24 +1,6 @@
-"0","skim(penguins)
-"
-"1","── Data Summary ────────────────────────
-"
-"1","                           Values  
-"
-"1","Name                       penguins
-"
-"1","Number of rows             344     
-"
-"1","Number of columns          7       
-"
-"1","_______________________            
-"
-"1","Column type frequency:             
-"
-"1","  factor                   3       
-"
-"1","  numeric                  4       
-"
-"1","________________________           
-"
-"1","Group variables            None    
-"
+"0","ggplot(penguins, aes(x = species)) +"
+"0","  geom_bar(fill = ""skyblue"", color = ""black"") +"
+"0","  labs(title = ""Number of Penguins by Species"","
+"0","       x = ""Species"","
+"0","       y = ""Count"") +"
+"0","  theme_minimal()"
