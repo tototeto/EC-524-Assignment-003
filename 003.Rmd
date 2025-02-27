@@ -135,6 +135,34 @@ I have absolutely no idea why this is returning a third set of statistics, as th
 
 I would split **island** by *Biscoe* and *Not Biscoe*, as this seems to provide the best accuracy and similar Gini compared to other splits.
 
+### We would typically want to consider all possible splits for the numeric variables as well. Explain (or code) an approach that would try all of the splits for bill_length_mm.
+
+```{r numericSplitManual, warning=FALSE}
+# Use imputed values
+penguins <- pen_imp_tidy
+
+# Define resolution
+res = 1
+
+# Define range
+range = seq(from=min(penguins$bill_length_mm),to=(max(penguins$bill_length_mm)), by = res)
+
+suppress_3 <- lapply(X = range, FUN = function(i) {
+  
+  p_low <- penguins %>% filter(bill_length_mm <= i)
+  p_high <- penguins %>% filter(bill_length_mm > i) 
+  mode_low <- Mode(as.character(p_low$species))
+  mode_high <- Mode(as.character(p_high$species))
+  acc_df <- penguins %>% select(bill_length_mm, species)
+  acc_df %<>% mutate(
+    pred = factor(ifelse(bill_length_mm <= i, mode_low, mode_high))
+  ) 
+  levels(acc_df$pred) <- c("Adelie", "Chinstrap",  "Gentoo")
+  a = accuracy(acc_df, truth = species, estimate = pred)
+  print(paste("Accuracy, ", i, ": ", a[3]))
+})
+```
+
 
 
 

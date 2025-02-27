@@ -2136,6 +2136,62 @@ statistics, as there are only two levels to the variable
 Biscoe</em>, as this seems to provide the best accuracy and similar Gini
 compared to other splits.</p>
 </div>
+<div id="we-would-typically-want-to-consider-all-possible-splits-for-the-numeric-variables-as-well.-explain-or-code-an-approach-that-would-try-all-of-the-splits-for-bill_length_mm." class="section level3">
+<h3>We would typically want to consider all possible splits for the
+numeric variables as well. Explain (or code) an approach that would try
+all of the splits for bill_length_mm.</h3>
+<pre class="r"><code># Use imputed values
+penguins &lt;- pen_imp_tidy
+
+# Define resolution
+res = 1
+
+# Define range
+range = seq(from=min(penguins$bill_length_mm),to=(max(penguins$bill_length_mm)), by = res)
+
+suppress_3 &lt;- lapply(X = range, FUN = function(i) {
+  
+  p_low &lt;- penguins %&gt;% filter(bill_length_mm &lt;= i)
+  p_high &lt;- penguins %&gt;% filter(bill_length_mm &gt; i) 
+  mode_low &lt;- Mode(as.character(p_low$species))
+  mode_high &lt;- Mode(as.character(p_high$species))
+  acc_df &lt;- penguins %&gt;% select(bill_length_mm, species)
+  acc_df %&lt;&gt;% mutate(
+    pred = factor(ifelse(bill_length_mm &lt;= i, mode_low, mode_high))
+  ) 
+  levels(acc_df$pred) &lt;- c(&quot;Adelie&quot;, &quot;Chinstrap&quot;,  &quot;Gentoo&quot;)
+  a = accuracy(acc_df, truth = species, estimate = pred)
+  print(paste(&quot;Accuracy, &quot;, i, &quot;: &quot;, a[3]))
+})</code></pre>
+<pre><code>## [1] &quot;Accuracy,  32.1 :  0.440233236151603&quot;
+## [1] &quot;Accuracy,  33.1 :  0.441860465116279&quot;
+## [1] &quot;Accuracy,  34.1 :  0.441860465116279&quot;
+## [1] &quot;Accuracy,  35.1 :  0.441860465116279&quot;
+## [1] &quot;Accuracy,  36.1 :  0.441860465116279&quot;
+## [1] &quot;Accuracy,  37.1 :  0.319767441860465&quot;
+## [1] &quot;Accuracy,  38.1 :  0.38953488372093&quot;
+## [1] &quot;Accuracy,  39.1 :  0.438953488372093&quot;
+## [1] &quot;Accuracy,  40.1 :  0.491279069767442&quot;
+## [1] &quot;Accuracy,  41.1 :  0.558139534883721&quot;
+## [1] &quot;Accuracy,  42.1 :  0.590116279069767&quot;
+## [1] &quot;Accuracy,  43.1 :  0.604651162790698&quot;
+## [1] &quot;Accuracy,  44.1 :  0.613372093023256&quot;
+## [1] &quot;Accuracy,  45.1 :  0.613372093023256&quot;
+## [1] &quot;Accuracy,  46.1 :  0.593023255813954&quot;
+## [1] &quot;Accuracy,  47.1 :  0.566860465116279&quot;
+## [1] &quot;Accuracy,  48.1 :  0.558139534883721&quot;
+## [1] &quot;Accuracy,  49.1 :  0.549418604651163&quot;
+## [1] &quot;Accuracy,  50.1 :  0.526162790697674&quot;
+## [1] &quot;Accuracy,  51.1 :  0.491279069767442&quot;
+## [1] &quot;Accuracy,  52.1 :  0.465116279069767&quot;
+## [1] &quot;Accuracy,  53.1 :  0.453488372093023&quot;
+## [1] &quot;Accuracy,  54.1 :  0.450581395348837&quot;
+## [1] &quot;Accuracy,  55.1 :  0.447674418604651&quot;
+## [1] &quot;Accuracy,  56.1 :  0.444444444444444&quot;
+## [1] &quot;Accuracy,  57.1 :  0.444444444444444&quot;
+## [1] &quot;Accuracy,  58.1 :  0.443148688046647&quot;
+## [1] &quot;Accuracy,  59.1 :  0.443148688046647&quot;</code></pre>
+</div>
 </div>
 
 
