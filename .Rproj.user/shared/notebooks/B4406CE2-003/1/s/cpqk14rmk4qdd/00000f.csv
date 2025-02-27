@@ -1,0 +1,114 @@
+"0","p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools)
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+"
+"2","also installing the dependencies ‘proxy’, ‘rootSolve’, ‘e1071’, ‘lmom’, ‘mvtnorm’, ‘expm’, ‘Exact’, ‘gld’
+
+"
+"2","Warning: cannot open URL 'https://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.4/PACKAGES.rds': HTTP status was '404 Not Found'"
+"2","Warning: cannot open URL 'https://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.4/PACKAGES.gz': HTTP status was '404 Not Found'"
+"2","Warning: cannot open URL 'https://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.4/PACKAGES': HTTP status was '404 Not Found'"
+"2","Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.4:
+  cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.4/PACKAGES'"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/proxy_0.4-27.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 181358 bytes (177 KB)
+"
+"2","downloaded 177 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/rootSolve_1.8.2.4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 694264 bytes (677 KB)
+"
+"2","downloaded 677 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/e1071_1.7-16.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 674425 bytes (658 KB)
+"
+"2","downloaded 658 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/lmom_3.2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 581518 bytes (567 KB)
+"
+"2","downloaded 567 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/mvtnorm_1.3-3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 956881 bytes (934 KB)
+"
+"2","downloaded 934 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/expm_1.0-0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 222712 bytes (217 KB)
+"
+"2","downloaded 217 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/Exact_3.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 205151 bytes (200 KB)
+"
+"2","downloaded 200 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/gld_2.6.7.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 245434 bytes (239 KB)
+"
+"2","downloaded 239 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/DescTools_0.99.59.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 5817422 bytes (5.5 MB)
+"
+"2","downloaded 5.5 MB
+
+"
+"1","package ‘proxy’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘rootSolve’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘e1071’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘lmom’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘mvtnorm’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘expm’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘Exact’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘gld’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘DescTools’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpCWNtyo\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+DescTools installed
+"

@@ -1,0 +1,81 @@
+---
+title: '003'
+author: "Tom Ben-Shahar"
+date: "March 3, 2025"
+output: pdf_document
+---
+
+```{R Setup warning=FALSE}
+# Load packages
+library(pacman)
+p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools)
+# Load the penguin data
+data('penguins')
+
+```
+
+# Data Cleaning
+
+### Use skimr to check out the data. How many species do we have? Are they fairly balanced in the data? Why does it matter?
+
+```{r DataClean1 warning=FALSE}
+skim(penguins)
+
+ggplot(penguins, aes(x = species)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Number of Penguins by Species",
+       x = "Species",
+       y = "Count") +
+  theme_minimal()
+```
+
+Penguins species are not equally represented in the data, with some species having more than twice as many observations as others. 
+
+### What is imputation?
+
+Imputation is the process for handling missing data in which the values missing are replaced with guesses based on similar data points.
+
+### Hopefully you noticed we have some missing data. Let's impute. By hand. Since we're doing it by hand, let's start simply. For categorical variables, you can use the modal class. For numeric, let's use the median.
+
+```{r HandImputation warning=FALSE}
+pen_imp_hand <- penguins %>% 
+  mutate(
+    # Numeric
+    bill_length_mm = if_else(is.na(bill_length_mm), mean(bill_length_mm, na.rm = TRUE), bill_length_mm),
+    bill_depth_mm = if_else(is.na(bill_depth_mm), mean(bill_depth_mm, na.rm = TRUE), bill_depth_mm),
+    flipper_length_mm = if_else(is.na(flipper_length_mm), mean(flipper_length_mm, na.rm = TRUE), flipper_length_mm),
+    body_mass_g = if_else(is.na(body_mass_g), mean(body_mass_g, na.rm = TRUE), body_mass_g),
+    
+    # Categorical
+    sex = if_else(is.na(sex), Mode(sex, na.rm=TRUE), sex),
+    species = if_else(is.na(species), Mode(species, na.rm=TRUE), species),
+    island = if_else(is.na(island), Mode(island, na.rm=TRUE), island)
+  )
+```
+
+### Now repeat using tidymodels. Make a recipe and then prep and bake it. Check out the objects!
+
+```{r tidyImpute warning=FALSE}
+rec_imp <- recipe(penguins) %>% 
+  step_impute_mean(all_numeric()) %>% 
+  step_impute_mode(all_factor())
+
+pen_imp_tidy <- rec_imp %>% prep() %>% juice()
+
+rec_imp
+
+skim(pen_imp_tidy)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

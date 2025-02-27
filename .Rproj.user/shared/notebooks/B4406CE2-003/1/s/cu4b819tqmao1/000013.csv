@@ -1,0 +1,21 @@
+"0","pen_imp_hand <- penguins %>% 
+  mutate(
+    # Numeric
+    bill_length_mm = if_else(is.na(bill_length_mm), mean(bill_length_mm, na.rm = TRUE), bill_length_mm),
+    bill_depth_mm = if_else(is.na(bill_depth_mm), mean(bill_depth_mm, na.rm = TRUE), bill_depth_mm),
+    flipper_length_mm = if_else(is.na(flipper_length_mm), mean(flipper_length_mm, na.rm = TRUE), flipper_length_mm),
+    body_mass_g = if_else(is.na(body_mass_g), mean(body_mass_g, na.rm = TRUE), body_mass_g),
+    
+    # Categorical
+    sex = if_else(is.na(sex), Mode(sex), sex)
+    
+  )
+"
+"1","[1m[33mError[39m in `mutate()`:[22m
+[38;5;250m[36mℹ[38;5;250m In argument: `sex = if_else(is.na(sex), Mode(sex), sex)`.[39m
+[1mCaused by error in `if_else()`:[22m
+[33m![39m Can't combine `true` <double> and `false` <factor<8f119>>.
+Backtrace:
+[90m 1. [39mpenguins %>% ...
+[90m 9. [39m[1m[94mdplyr::if_else([39m[22mis.na(sex), Mode(sex), sex[1m[94m)[39m[22m
+"
