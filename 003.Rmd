@@ -163,6 +163,67 @@ suppress_3 <- lapply(X = range, FUN = function(i) {
 })
 ```
 
+# *Bigger* Tree
+
+### Use tidymodels to grow a tree (actually multiple trees). Remember: We can (need to) tune the cost complexity (cost_complexity) to try to restrict the tree from overfitting.
+
+```{r treeModel, warning=FALSE}
+# Reload data
+data('penguins')
+
+# Define Recipe
+
+rec_1 <- recipe(penguins) %>% 
+  step_impute_mean(all_numeric()) %>% 
+  step_impute_mode(all_factor()) %>% 
+  update_role(species, new_role = "outcome")
+
+# Define Model
+
+mod_1 <- decision_tree(
+  mode = "classification",
+  engine = "rpart",
+  cost_complexity = tune(),
+  tree_depth = tune(),
+  min_n = tune()
+)
+
+# Define Workflow
+
+wkfl_1 <- workflow() %>% 
+  add_model(mod_1) %>% 
+  add_recipe(rec_1)
+
+# Cross Validation sets
+nfold = 5
+peng_cv <- rec_1 %>% prep %>% juice %>% vfold_cv(v = nfold)
+
+# Parameter ranges
+
+cost_comp = c(0.01, 0.1) # 10^seq(from = -3, to = -1, by = 1)
+depth = c(1, 2) #seq(from = 1, to = 10, by = 2)
+mn = c(1,2) #seq(from = 1, to = 10, by = 2)
+
+# cross validate
+
+cv <- wkfl_1 %>% 
+  tune_grid(
+    peng_cv,
+    grid = expand_grid(
+      cost_complexity = cost_comp,
+      tree_depth = depth,
+      min_n = mn),
+    metrics = metric_set(accuracy)
+  )
+
+fit_1 <- wkfl_1 %>% 
+  finalize_workflow(select_best(cv, metric = 'accuracy')) %>% 
+  fit(data = penguins)
+
+### Ask about this in lab!
+
+```
+
 
 
 
