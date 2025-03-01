@@ -1,0 +1,802 @@
+"1","
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/sys_3.4.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 48079 bytes (46 KB)
+"
+"2","downloaded 46 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/bit_4.5.0.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1182316 bytes (1.1 MB)
+"
+"2","downloaded 1.1 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/ps_1.9.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 658527 bytes (643 KB)
+"
+"2","downloaded 643 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/rematch_2.0.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 19449 bytes (18 KB)
+"
+"2","downloaded 18 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/askpass_1.2.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 74796 bytes (73 KB)
+"
+"2","downloaded 73 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/bit64_4.6.0-1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 511905 bytes (499 KB)
+"
+"2","downloaded 499 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/processx_3.8.6.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 699346 bytes (682 KB)
+"
+"2","downloaded 682 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/blob_1.2.4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 50003 bytes (48 KB)
+"
+"2","downloaded 48 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/DBI_1.2.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 940876 bytes (918 KB)
+"
+"2","downloaded 918 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/gargle_1.5.2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 810154 bytes (791 KB)
+"
+"2","downloaded 791 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/uuid_1.2-1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 52934 bytes (51 KB)
+"
+"2","downloaded 51 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/cellranger_1.1.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 107508 bytes (104 KB)
+"
+"2","downloaded 104 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/curl_6.2.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 3504333 bytes (3.3 MB)
+"
+"2","downloaded 3.3 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/ids_1.0.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 126578 bytes (123 KB)
+"
+"2","downloaded 123 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/rematch2_2.1.2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 49023 bytes (47 KB)
+"
+"2","downloaded 47 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/openssl_2.3.2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 3470431 bytes (3.3 MB)
+"
+"2","downloaded 3.3 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/systemfonts_1.2.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1602267 bytes (1.5 MB)
+"
+"2","downloaded 1.5 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/textshaping_1.0.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1468464 bytes (1.4 MB)
+"
+"2","downloaded 1.4 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/clipr_0.8.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 55909 bytes (54 KB)
+"
+"2","downloaded 54 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/crayon_1.5.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 166309 bytes (162 KB)
+"
+"2","downloaded 162 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/vroom_1.6.5.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1353406 bytes (1.3 MB)
+"
+"2","downloaded 1.3 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/progress_1.2.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 89373 bytes (87 KB)
+"
+"2","downloaded 87 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/callr_3.7.6.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 479600 bytes (468 KB)
+"
+"2","downloaded 468 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/selectr_0.4-2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 496040 bytes (484 KB)
+"
+"2","downloaded 484 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/dbplyr_2.5.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1268910 bytes (1.2 MB)
+"
+"2","downloaded 1.2 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/dtplyr_1.3.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 360008 bytes (351 KB)
+"
+"2","downloaded 351 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/forcats_1.0.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 429368 bytes (419 KB)
+"
+"2","downloaded 419 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/googledrive_2.1.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1910655 bytes (1.8 MB)
+"
+"2","downloaded 1.8 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/googlesheets4_1.1.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 525629 bytes (513 KB)
+"
+"2","downloaded 513 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/haven_2.5.4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 775338 bytes (757 KB)
+"
+"2","downloaded 757 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/hms_1.1.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 105670 bytes (103 KB)
+"
+"2","downloaded 103 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/httr_1.4.7.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 500701 bytes (488 KB)
+"
+"2","downloaded 488 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/modelr_0.1.11.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 204147 bytes (199 KB)
+"
+"2","downloaded 199 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/ragg_1.3.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1966512 bytes (1.9 MB)
+"
+"2","downloaded 1.9 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/readr_2.1.5.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1223048 bytes (1.2 MB)
+"
+"2","downloaded 1.2 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/reprex_2.1.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 505274 bytes (493 KB)
+"
+"2","downloaded 493 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/rvest_1.0.4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 310835 bytes (303 KB)
+"
+"2","downloaded 303 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/tidyverse_2.0.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 431690 bytes (421 KB)
+"
+"2","downloaded 421 KB
+
+"
+"1","package ‘sys’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘bit’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘ps’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘rematch’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘askpass’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘bit64’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘processx’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘blob’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘DBI’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘gargle’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘uuid’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘cellranger’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘curl’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘ids’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘rematch2’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘openssl’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘systemfonts’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘textshaping’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘clipr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘crayon’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘vroom’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘progress’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘callr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘selectr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘dbplyr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘dtplyr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘forcats’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘googledrive’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘googlesheets4’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘haven’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘hms’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘httr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘modelr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘ragg’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘readr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘reprex’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘rvest’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘tidyverse’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
+"1",""
+"1","
+"
+"2","installing the source packages ‘readxl’, ‘xml2’
+
+"
+"2","trying URL 'https://cran.rstudio.com/src/contrib/readxl_1.4.4.tar.gz'
+"
+"2","Content type 'application/x-gzip'"
+"2"," length 1636326 bytes (1.6 MB)
+"
+"2","downloaded 1.6 MB
+
+"
+"2","trying URL 'https://cran.rstudio.com/src/contrib/xml2_1.3.7.tar.gz'
+"
+"2","Content type 'application/x-gzip'"
+"2"," length 152691 bytes (149 KB)
+"
+"2","downloaded 149 KB
+
+"
+"1","* installing *source* package 'readxl' ...
+"
+"1","** package 'readxl' successfully unpacked and MD5 sums checked
+"
+"1","** using staged installation
+"
+"1","** libs
+"
+"1","using C compiler: 'gcc.exe (GCC) 13.3.0'
+"
+"1","using C++ compiler: 'G__~1.EXE (GCC) 13.3.0'
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c cpp11.cpp -o cpp11.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c XlsWorkBook.cpp -o XlsWorkBook.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c XlsxWorkBook.cpp -o XlsxWorkBook.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c zip.cpp -o zip.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c Read.cpp -o Read.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c cran.c -o cran.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c libxls/xlstool.c -o libxls/xlstool.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c libxls/endian.c -o libxls/endian.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c libxls/ole.c -o libxls/ole.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c libxls/xls.c -o libxls/xls.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -Iwindows -I. -D__USE_MINGW_ANSI_STDIO -I'C:/Users/totot/AppData/Local/R/win-library/4.4/cpp11/include' -I'C:/Users/totot/AppData/Local/R/win-library/4.4/progress/include'   -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c libxls/locale.c -o libxls/locale.o
+"
+"1","g++ -std=gnu++17 -shared -s -static-libgcc -o readxl.dll tmp.def cpp11.o XlsWorkBook.o XlsxWorkBook.o zip.o Read.o cran.o libxls/xlstool.o libxls/endian.o libxls/ole.o libxls/xls.o libxls/locale.o -lRiconv -LC:/rtools44/x86_64-w64-mingw32.static.posix/lib/x64 -LC:/rtools44/x86_64-w64-mingw32.static.posix/lib -LC:/PROGRA~1/R/R-44~1.2/bin/x64 -lR
+"
+"1","installing to C:/Users/totot/AppData/Local/R/win-library/4.4/00LOCK-readxl/00new/readxl/libs/x64
+"
+"1","** R
+"
+"1","** inst
+"
+"1","** byte-compile and prepare package for lazy loading
+"
+"1","** help
+"
+"1","*** installing help indices
+"
+"1","*** copying figures
+"
+"1","** building package indices
+"
+"1","** installing vignettes
+"
+"1","** testing if installed package can be loaded from temporary location
+"
+"1","** testing if installed package can be loaded from final location
+"
+"1","** testing if installed package keeps a record of temporary installation path
+"
+"1","* DONE (readxl)
+"
+"1","* installing *source* package 'xml2' ...
+"
+"1","** package 'xml2' successfully unpacked and MD5 sums checked
+"
+"1","** using staged installation
+"
+"1","** libs
+"
+"1","using C compiler: 'gcc.exe (GCC) 13.3.0'
+"
+"1","using C++ compiler: 'G__~1.EXE (GCC) 13.3.0'
+"
+"1","using libxml-2.0 from Rtools
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c connection.cpp -o connection.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c init.c -o init.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_doc.cpp -o xml2_doc.o
+"
+"1","gcc  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_init.c -o xml2_init.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_namespace.cpp -o xml2_namespace.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_node.cpp -o xml2_node.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_output.cpp -o xml2_output.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_schema.cpp -o xml2_schema.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_url.cpp -o xml2_url.o
+"
+"1","g++ -std=gnu++17  -I""C:/PROGRA~1/R/R-44~1.2/include"" -DNDEBUG -IC:/rtools44/x86_64-w64-mingw32.static.posix/include/libxml2 -DLIBXML_STATIC -IC:/rtools44/x86_64-w64-mingw32.static.posix/include -DLZMA_API_STATIC -DLZMA_API_STATIC  -DSTRICT_R_HEADERS -DR_NO_REMAP -DLIBXML_STATIC -I../inst/include    -I""C:/rtools44/x86_64-w64-mingw32.static.posix/include""     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c xml2_xpath.cpp -o xml2_xpath.o
+"
+"1","g++ -std=gnu++17 -shared -s -static-libgcc -o xml2.dll tmp.def connection.o init.o xml2_doc.o xml2_init.o xml2_namespace.o xml2_node.o xml2_output.o xml2_schema.o xml2_url.o xml2_xpath.o -LC:/rtools44/x86_64-w64-mingw32.static.posix/lib -lxml2 -lz -liconv -lm -lws2_32 -llzma -LC:/rtools44/x86_64-w64-mingw32.static.posix/lib -llzma -LC:/rtools44/x86_64-w64-mingw32.static.posix/lib/x64 -LC:/rtools44/x86_64-w64-mingw32.static.posix/lib -LC:/PROGRA~1/R/R-44~1.2/bin/x64 -lR
+"
+"1","installing to C:/Users/totot/AppData/Local/R/win-library/4.4/00LOCK-xml2/00new/xml2/libs/x64
+"
+"1","** R
+"
+"1","** inst
+"
+"1","** byte-compile and prepare package for lazy loading
+"
+"1","** help
+"
+"1","*** installing help indices
+"
+"1","*** copying figures
+"
+"1","** building package indices
+"
+"1","** installing vignettes
+"
+"1","** testing if installed package can be loaded from temporary location
+"
+"1","** testing if installed package can be loaded from final location
+"
+"1","** testing if installed package keeps a record of temporary installation path
+"
+"1","* DONE (xml2)
+"
+"2","
+"
+"2",""
+"2","The downloaded source packages are in
+	‘C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages’"
+"2",""
+"2","
+"
+"2","
+tidyverse installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+"
+"2","also installing the dependency ‘repr’
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/repr_1.1.7.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 130515 bytes (127 KB)
+"
+"2","downloaded 127 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/skimr_2.1.5.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1243121 bytes (1.2 MB)
+"
+"2","downloaded 1.2 MB
+
+"
+"1","package ‘repr’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘skimr’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+skimr installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+"
+"2","also installing the dependencies ‘proxy’, ‘rootSolve’, ‘e1071’, ‘lmom’, ‘mvtnorm’, ‘expm’, ‘Exact’, ‘gld’
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/proxy_0.4-27.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 181317 bytes (177 KB)
+"
+"2","downloaded 177 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/rootSolve_1.8.2.4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 694264 bytes (677 KB)
+"
+"2","downloaded 677 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/e1071_1.7-16.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 674189 bytes (658 KB)
+"
+"2","downloaded 658 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/lmom_3.2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 581518 bytes (567 KB)
+"
+"2","downloaded 567 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/mvtnorm_1.3-3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 956968 bytes (934 KB)
+"
+"2","downloaded 934 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/expm_1.0-0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 222707 bytes (217 KB)
+"
+"2","downloaded 217 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/Exact_3.3.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 205151 bytes (200 KB)
+"
+"2","downloaded 200 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/gld_2.6.7.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 245379 bytes (239 KB)
+"
+"2","downloaded 239 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/DescTools_0.99.59.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 5818312 bytes (5.5 MB)
+"
+"2","downloaded 5.5 MB
+
+"
+"1","package ‘proxy’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘rootSolve’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘e1071’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘lmom’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘mvtnorm’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘expm’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘Exact’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘gld’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘DescTools’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+DescTools installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/collapse_2.0.19.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 3780197 bytes (3.6 MB)
+"
+"2","downloaded 3.6 MB
+
+"
+"1","package ‘collapse’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+collapse installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+"
+"2","also installing the dependency ‘snakecase’
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/snakecase_0.11.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 169308 bytes (165 KB)
+"
+"2","downloaded 165 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/janitor_2.2.1.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 292979 bytes (286 KB)
+"
+"2","downloaded 286 KB
+
+"
+"1","package ‘snakecase’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘janitor’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+janitor installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/rpart.plot_3.1.2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1039400 bytes (1015 KB)
+"
+"2","downloaded 1015 KB
+
+"
+"1","package ‘rpart.plot’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+rpart.plot installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/doParallel_1.0.17.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 192344 bytes (187 KB)
+"
+"2","downloaded 187 KB
+
+"
+"1","package ‘doParallel’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+doParallel installed
+"
+"0","library(tidymodels)"
+"0","# Load the penguin data"
+"0","data('penguins')"
+"0",""
+"0","penguins %<>% clean_names()"

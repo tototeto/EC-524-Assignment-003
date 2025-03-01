@@ -127,7 +127,8 @@
 \begin{Highlighting}[]
 \CommentTok{\# Load packages}
 \FunctionTok{library}\NormalTok{(pacman)}
-\FunctionTok{p\_load}\NormalTok{(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor)}
+\FunctionTok{p\_load}\NormalTok{(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel)}
+\FunctionTok{library}\NormalTok{(tidymodels)}
 \CommentTok{\# Load the penguin data}
 \FunctionTok{data}\NormalTok{(}\StringTok{\textquotesingle{}penguins\textquotesingle{}}\NormalTok{)}
 
@@ -252,7 +253,7 @@ body\_mass\_g & 2 & 0.99 & 4201.75 & 801.95 & 2700.0 & 3550.00 & 4050.00
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{ggplot}\NormalTok{(penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ species)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{fill =} \StringTok{"cyan4"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Number of Penguins by Species"}\NormalTok{,}
        \AttributeTok{x =} \StringTok{"Species"}\NormalTok{,}
        \AttributeTok{y =} \StringTok{"Count"}\NormalTok{) }\SpecialCharTok{+}
@@ -493,29 +494,17 @@ gini.}\label{try-each-split-of-island-and-then-calculate-the-splits-1-accuracy-a
 \NormalTok{  species1 }\OtherTok{=}\NormalTok{ grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{fmode}\NormalTok{()}
 \NormalTok{  species2 }\OtherTok{=}\NormalTok{ grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{fmode}\NormalTok{()}
   \CommentTok{\# Calculate accuracy}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species1)))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species2)))}
+\NormalTok{  (}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species1)))}
+\NormalTok{  (}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species2)))}
   \CommentTok{\# Calculate gini}
 \NormalTok{  g1 }\OtherTok{=}\NormalTok{ grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{table}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{()}
 \NormalTok{  g2 }\OtherTok{=}\NormalTok{ grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{table}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{()}
 \NormalTok{  gini1 }\OtherTok{=} \FunctionTok{sum}\NormalTok{(g1 }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ g1))}
 \NormalTok{  gini2 }\OtherTok{=} \FunctionTok{sum}\NormalTok{(g2 }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ g2))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Gini, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, (gini1 }\SpecialCharTok{+}\NormalTok{ gini2)}\SpecialCharTok{/}\DecValTok{2}\NormalTok{))}
+\NormalTok{  (}\FunctionTok{paste}\NormalTok{(}\StringTok{"Gini, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, (gini1 }\SpecialCharTok{+}\NormalTok{ gini2)}\SpecialCharTok{/}\DecValTok{2}\NormalTok{))}
 \NormalTok{\})}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] "Accuracy,  Torgersen :  1"
-## [1] "Accuracy,  Torgersen :  0.424657534246575"
-## [1] "Gini,  Torgersen :  0.324075811596922"
-## [1] "Accuracy,  Biscoe :  0.738095238095238"
-## [1] "Accuracy,  Biscoe :  0.613636363636364"
-## [1] "Gini,  Biscoe :  0.430397434455876"
-## [1] "Accuracy,  Dream :  0.548387096774194"
-## [1] "Accuracy,  Dream :  0.563636363636364"
-## [1] "Gini,  Dream :  0.493609102088905"
-\end{verbatim}
 
 \subsubsection{Repeat 1.2 but for the sex
 variable.}\label{repeat-1.2-but-for-the-sex-variable.}
@@ -533,29 +522,17 @@ variable.}\label{repeat-1.2-but-for-the-sex-variable.}
 \NormalTok{  species1 }\OtherTok{=}\NormalTok{ grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{fmode}\NormalTok{()}
 \NormalTok{  species2 }\OtherTok{=}\NormalTok{ grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{fmode}\NormalTok{()}
   \CommentTok{\# Calculate accuracy}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species1)))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species2)))}
+\NormalTok{  (}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species1)))}
+\NormalTok{  (}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, }\FunctionTok{fmean}\NormalTok{(grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{==}\NormalTok{ species2)))}
   \CommentTok{\# Calculate gini}
 \NormalTok{  g1 }\OtherTok{=}\NormalTok{ grp1}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{table}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{()}
 \NormalTok{  g2 }\OtherTok{=}\NormalTok{ grp2}\SpecialCharTok{$}\NormalTok{species }\SpecialCharTok{|\textgreater{}} \FunctionTok{table}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{()}
 \NormalTok{  gini1 }\OtherTok{=} \FunctionTok{sum}\NormalTok{(g1 }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ g1))}
 \NormalTok{  gini2 }\OtherTok{=} \FunctionTok{sum}\NormalTok{(g2 }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ g2))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Gini, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, (gini1 }\SpecialCharTok{+}\NormalTok{ gini2)}\SpecialCharTok{/}\DecValTok{2}\NormalTok{))}
+\NormalTok{  (}\FunctionTok{paste}\NormalTok{(}\StringTok{"Gini, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, (gini1 }\SpecialCharTok{+}\NormalTok{ gini2)}\SpecialCharTok{/}\DecValTok{2}\NormalTok{))}
 \NormalTok{\})}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] "Accuracy,  male :  0.43452380952381"
-## [1] "Accuracy,  male :  0.442424242424242"
-## [1] "Gini,  male :  0.638314885871704"
-## [1] "Accuracy,  female :  0.442424242424242"
-## [1] "Accuracy,  female :  0.43452380952381"
-## [1] "Gini,  female :  0.638314885871704"
-## [1] "Accuracy,  NA :  NA"
-## [1] "Accuracy,  NA :  NA"
-## [1] "Gini,  NA :  NaN"
-\end{verbatim}
 
 I have absolutely no idea why this is returning a third set of
 statistics, as there are only two levels to the variable \textbf{sex}.
@@ -566,5 +543,132 @@ Why?}\label{which-variable-and-split-would-you-make-why}
 I would split \textbf{island} by \emph{Biscoe} and \emph{Not Biscoe}, as
 this seems to provide the best accuracy and similar Gini compared to
 other splits.
+
+\subsubsection{We would typically want to consider all possible splits
+for the numeric variables as well. Explain (or code) an approach that
+would try all of the splits for
+bill\_length\_mm.}\label{we-would-typically-want-to-consider-all-possible-splits-for-the-numeric-variables-as-well.-explain-or-code-an-approach-that-would-try-all-of-the-splits-for-bill_length_mm.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use imputed values}
+\NormalTok{penguins }\OtherTok{\textless{}{-}}\NormalTok{ pen\_imp\_tidy}
+
+\CommentTok{\# Define resolution}
+\NormalTok{res }\OtherTok{=} \DecValTok{1}
+
+\CommentTok{\# Define range}
+\NormalTok{range }\OtherTok{=} \FunctionTok{seq}\NormalTok{(}\AttributeTok{from=}\FunctionTok{min}\NormalTok{(penguins}\SpecialCharTok{$}\NormalTok{bill\_length\_mm),}\AttributeTok{to=}\NormalTok{(}\FunctionTok{max}\NormalTok{(penguins}\SpecialCharTok{$}\NormalTok{bill\_length\_mm)), }\AttributeTok{by =}\NormalTok{ res)}
+
+\NormalTok{suppress\_3 }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}\AttributeTok{X =}\NormalTok{ range, }\AttributeTok{FUN =} \ControlFlowTok{function}\NormalTok{(i) \{}
+  
+\NormalTok{  p\_low }\OtherTok{\textless{}{-}}\NormalTok{ penguins }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(bill\_length\_mm }\SpecialCharTok{\textless{}=}\NormalTok{ i)}
+\NormalTok{  p\_high }\OtherTok{\textless{}{-}}\NormalTok{ penguins }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(bill\_length\_mm }\SpecialCharTok{\textgreater{}}\NormalTok{ i) }
+\NormalTok{  mode\_low }\OtherTok{\textless{}{-}} \FunctionTok{Mode}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(p\_low}\SpecialCharTok{$}\NormalTok{species))}
+\NormalTok{  mode\_high }\OtherTok{\textless{}{-}} \FunctionTok{Mode}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(p\_high}\SpecialCharTok{$}\NormalTok{species))}
+\NormalTok{  acc\_df }\OtherTok{\textless{}{-}}\NormalTok{ penguins }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(bill\_length\_mm, species)}
+\NormalTok{  acc\_df }\SpecialCharTok{\%\textless{}\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{pred =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(bill\_length\_mm }\SpecialCharTok{\textless{}=}\NormalTok{ i, mode\_low, mode\_high))}
+\NormalTok{  ) }
+  \FunctionTok{levels}\NormalTok{(acc\_df}\SpecialCharTok{$}\NormalTok{pred) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Adelie"}\NormalTok{, }\StringTok{"Chinstrap"}\NormalTok{,  }\StringTok{"Gentoo"}\NormalTok{)}
+\NormalTok{  a }\OtherTok{=} \FunctionTok{accuracy}\NormalTok{(acc\_df, }\AttributeTok{truth =}\NormalTok{ species, }\AttributeTok{estimate =}\NormalTok{ pred)}
+\NormalTok{  (}\FunctionTok{paste}\NormalTok{(}\StringTok{"Accuracy, "}\NormalTok{, i, }\StringTok{": "}\NormalTok{, a[}\DecValTok{3}\NormalTok{]))}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\section{\texorpdfstring{\textbf{Bigger}
+Tree}{Bigger Tree}}\label{bigger-tree}
+
+\subsubsection{Use tidymodels to grow a tree (actually multiple trees).
+Remember: We can (need to) tune the cost complexity (cost\_complexity)
+to try to restrict the tree from
+overfitting.}\label{use-tidymodels-to-grow-a-tree-actually-multiple-trees.-remember-we-can-need-to-tune-the-cost-complexity-cost_complexity-to-try-to-restrict-the-tree-from-overfitting.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{981598345}\NormalTok{)}
+\CommentTok{\# Reload data}
+\FunctionTok{data}\NormalTok{(}\StringTok{\textquotesingle{}penguins\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Define Recipe}
+
+\NormalTok{rec\_1 }\OtherTok{\textless{}{-}} \FunctionTok{recipe}\NormalTok{(penguins, species }\SpecialCharTok{\textasciitilde{}}\NormalTok{ island }\SpecialCharTok{+}\NormalTok{ sex }\SpecialCharTok{+}\NormalTok{ bill\_length\_mm) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{step\_impute\_mean}\NormalTok{(}\FunctionTok{all\_numeric}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{step\_impute\_mode}\NormalTok{(}\FunctionTok{all\_factor}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{update\_role}\NormalTok{(species, }\AttributeTok{new\_role =} \StringTok{"outcome"}\NormalTok{)}
+
+\CommentTok{\# Define Model}
+
+\NormalTok{mod\_1 }\OtherTok{\textless{}{-}} \FunctionTok{decision\_tree}\NormalTok{(}
+  \AttributeTok{mode =} \StringTok{"classification"}\NormalTok{,}
+  \AttributeTok{engine =} \StringTok{"rpart"}\NormalTok{,}
+  \AttributeTok{cost\_complexity =} \FunctionTok{tune}\NormalTok{(),}
+  \AttributeTok{tree\_depth =} \FunctionTok{tune}\NormalTok{(),}
+  \AttributeTok{min\_n =} \FunctionTok{tune}\NormalTok{()}
+\NormalTok{)}
+
+\CommentTok{\# Define Workflow}
+
+\NormalTok{wkfl\_1 }\OtherTok{\textless{}{-}} \FunctionTok{workflow}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{add\_model}\NormalTok{(mod\_1) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{add\_recipe}\NormalTok{(rec\_1)}
+
+\CommentTok{\# Cross Validation sets}
+\NormalTok{nfold }\OtherTok{=} \DecValTok{5}
+\NormalTok{peng\_cv }\OtherTok{\textless{}{-}}\NormalTok{ rec\_1 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ prep }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ juice }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{vfold\_cv}\NormalTok{(}\AttributeTok{v =}\NormalTok{ nfold)}
+
+\CommentTok{\# Parameter ranges}
+
+\NormalTok{cost\_comp }\OtherTok{=} \DecValTok{10}\SpecialCharTok{\^{}}\FunctionTok{seq}\NormalTok{(}\AttributeTok{from =} \SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\AttributeTok{to =} \DecValTok{0}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.5}\NormalTok{)}
+\NormalTok{depth }\OtherTok{=} \FunctionTok{seq}\NormalTok{(}\AttributeTok{from =} \DecValTok{1}\NormalTok{, }\AttributeTok{to =} \DecValTok{15}\NormalTok{, }\AttributeTok{by =} \DecValTok{1}\NormalTok{)}
+\NormalTok{mn }\OtherTok{=} \FunctionTok{seq}\NormalTok{(}\AttributeTok{from =} \DecValTok{1}\NormalTok{, }\AttributeTok{to =} \DecValTok{10}\NormalTok{, }\AttributeTok{by =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# Parellel}
+
+\NormalTok{tgrid }\OtherTok{\textless{}{-}} \FunctionTok{expand\_grid}\NormalTok{(}
+      \AttributeTok{cost\_complexity =}\NormalTok{ cost\_comp,}
+      \AttributeTok{tree\_depth =}\NormalTok{ depth,}
+      \AttributeTok{min\_n =}\NormalTok{ mn)}
+
+\CommentTok{\# rf\_tuning = mclapply(}
+\CommentTok{\#   x = 1:nrow(tgrid),}
+\CommentTok{\#   FUN }
+\CommentTok{\# )}
+
+\CommentTok{\# cross validate}
+
+\CommentTok{\# Detect the number of available cores}
+\NormalTok{num\_cores }\OtherTok{\textless{}{-}} \FunctionTok{detectCores}\NormalTok{()}
+
+\CommentTok{\# Register parallel backend}
+\NormalTok{cl }\OtherTok{\textless{}{-}} \FunctionTok{makeCluster}\NormalTok{(num\_cores }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)}
+\FunctionTok{registerDoParallel}\NormalTok{(cl)}
+
+\NormalTok{cv }\OtherTok{\textless{}{-}}\NormalTok{ wkfl\_1 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tune\_grid}\NormalTok{(}
+\NormalTok{    peng\_cv,}
+    \AttributeTok{grid =}\NormalTok{ tgrid,}
+    \AttributeTok{metrics =} \FunctionTok{metric\_set}\NormalTok{(accuracy),}
+    \AttributeTok{control =} \FunctionTok{control\_grid}\NormalTok{(}\AttributeTok{save\_pred =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{verbose =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{parallel\_over =} \StringTok{"everything"}\NormalTok{) }\CommentTok{\# Parellel}
+\NormalTok{  )}
+
+\NormalTok{fit\_1 }\OtherTok{\textless{}{-}}\NormalTok{ wkfl\_1 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{finalize\_workflow}\NormalTok{(}\FunctionTok{select\_best}\NormalTok{(cv, }\AttributeTok{metric =} \StringTok{\textquotesingle{}accuracy\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{fit}\NormalTok{(}\AttributeTok{data =}\NormalTok{ penguins)}
+
+\FunctionTok{rpart.plot}\NormalTok{(}
+\NormalTok{  fit\_1}\SpecialCharTok{$}\NormalTok{fit}\SpecialCharTok{$}\NormalTok{fit}\SpecialCharTok{$}\NormalTok{fit,}
+  \AttributeTok{extra =} \DecValTok{104}\NormalTok{,}
+  \AttributeTok{box.palette =} \StringTok{"RdPu"}\NormalTok{,}
+  \AttributeTok{branch.lty =} \DecValTok{4}\NormalTok{,}
+  \AttributeTok{shadow.col =} \StringTok{"gray"}\NormalTok{,}
+  \AttributeTok{nn =} \ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{cex =} \FloatTok{0.5}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{003_files/figure-latex/treeModel-1.pdf}
 
 \end{document}

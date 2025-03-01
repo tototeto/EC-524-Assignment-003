@@ -1,6 +1,0 @@
-"0","rec_imp <- recipe(penguins) %>% "
-"0","  step_impute_mean(all_numeric()) %>% "
-"0","  step_impute_mode(all_factor())"
-"2","Error in step_impute_mode(., all_factor()) : 
-  could not find function ""step_impute_mode""
-"

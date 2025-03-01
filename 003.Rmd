@@ -5,6 +5,7 @@ date: "March 3, 2025"
 output:
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 ```{R Setup, warning=FALSE}
 # Load packages

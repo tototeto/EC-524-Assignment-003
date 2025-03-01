@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.20)  26 FEB 2025 19:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.28)  28 FEB 2025 19:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -485,26 +485,26 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 129.
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 132.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 133.
 (c:/Users/totot/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 1 on input line 166.
+(longtable)                in table 1 on input line 167.
 
 
-Overfull \hbox (10.41084pt too wide) in paragraph at lines 218--219
+Overfull \hbox (10.41084pt too wide) in paragraph at lines 219--220
  []\T1/lmr/m/n/10 n_missing
  []
 
 
-Overfull \hbox (14.67346pt too wide) in paragraph at lines 220--221
+Overfull \hbox (14.67346pt too wide) in paragraph at lines 221--222
  []\T1/lmr/m/n/10 complete_rate
  []
 
 
-Overfull \hbox (9.82367pt too wide) in paragraph at lines 242--242
+Overfull \hbox (9.82367pt too wide) in paragraph at lines 243--243
 []|\T1/lmr/m/n/10 bill_length_mm|  
  []
 
@@ -516,13 +516,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.243 & 59.6 & ▃
+l.244 & 59.6 & ▃
                   ▇▇▆▁ \\ 
 Here is how much of TeX's memory you used:
- 11930 strings out of 475172
- 185369 string characters out of 5764330
+ 11930 strings out of 475171
+ 185369 string characters out of 5764309
  587113 words of memory out of 5000000
- 34752 multiletter control sequences out of 15000+600000
+ 34753 multiletter control sequences out of 15000+600000
  591117 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,7n,93p,402b,434s stack positions out of 10000i,1000n,20000p,200000b,200000s
