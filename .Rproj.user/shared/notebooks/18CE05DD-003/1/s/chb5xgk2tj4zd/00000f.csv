@@ -1,0 +1,36 @@
+"0","cat(
+  ""\n------------------------------------------------\n"",
+  ""Tuned Parameters:\nNumber of Predictors Sampled:"",
+  best_rf$mtry[1] , ""\nNumber of Trees: "",
+  best_rf$trees[1], ""\nMinimum Data Points per Node: "", best_rf$min_n[1],
+  ""\nAccuracy: "", best_rf$mean[1],
+  ""\n------------------------------------------------\n""
+)
+"
+"1","
+------------------------------------------------
+"
+"1"," "
+"1","Tuned Parameters:
+Number of Predictors Sampled:"
+"1"," "
+"1","2"
+"1"," "
+"1","
+Number of Trees: "
+"1"," "
+"1","31"
+"1"," "
+"1","
+Minimum Data Points per Node: "
+"1"," "
+"1","1"
+"1"," "
+"1","
+Accuracy: "
+"1"," "
+"1","0.9826087"
+"1"," "
+"1","
+------------------------------------------------
+"

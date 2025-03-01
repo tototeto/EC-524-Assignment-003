@@ -3,7 +3,7 @@
     "path": "D:/School/2024-25 Masters/EC 524/Assignments/EC-524-Assignment-003/003.Rmd",
     "project_path": "003.Rmd",
     "type": "r_markdown",
-    "hash": "2128787066",
+    "hash": "3633286129",
     "contents": "",
     "dirty": false,
     "created": 1740796993713.0,
@@ -12,16 +12,22 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "last_setup_crc32": "46bd0292f27fd274",
-        "cursorPosition": "266,0",
-        "scrollLine": "249"
+        "last_setup_crc32": "46bd0292976089c1",
+        "cursorPosition": "384,56",
+        "scrollLine": "373",
+        "rmdVisualMode": "false",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "9229:6711",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "0",
+        "docOutlineSize": "103"
     },
     "folds": "",
-    "lastKnownWriteTime": 1740800169,
+    "lastKnownWriteTime": 1740810527,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1740800169331,
+    "last_content_update": 1740810527137,
     "read_only": false,
     "read_only_alternatives": []
 }

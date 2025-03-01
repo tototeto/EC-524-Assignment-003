@@ -7,10 +7,11 @@ output:
     df_print: paged
   pdf_document: default
 ---
+
 ```{R Setup, warning=FALSE}
 # Load packages
 library(pacman)
-p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel)
+p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel, ranger, xgboost)
 library(tidymodels)
 # Load the penguin data
 data('penguins')
@@ -131,7 +132,7 @@ suppress_2 <- lapply(X = sex, FUN = function(i) {
 })
 ```
 
-I have absolutely no idea why this is returning a third set of statistics, as there are only two levels to the variable **sex**. 
+I have absolutely no idea why this is returning a third set of statistics, as there are only two levels to the variable **sex**.
 
 ### Which variable and split would you make? Why?
 
@@ -264,8 +265,189 @@ I could change the model from decision_tree() to random_forest()
 ### Now use tidymodels to tune (with CV) a random forest. Make sure you tune the relevant parameters (what are they?).
 
 ```{r randomForest, warning=FALSE}
+set.seed(35480384)
+# Reload data
+data('penguins')
+
+# Define Model
+
+mod_rf <- rand_forest(
+  mode = "classification",
+  mtry = tune(),
+  trees = tune(),
+  min_n = tune()
+) %>% 
+  set_engine("ranger")
+
+# Define Workflow
+
+wkfl_rf <- workflow() %>% 
+  add_model(mod_rf) %>% 
+  add_recipe(rec_1)
+
+# Parameter ranges
+
+mtry_r = seq(from = 1, to = ncol(penguins), length.out = ncol(penguins))
+trees_r = floor(10^seq(from = 0, to = 3, by = 0.5))
+min_n_r = seq(from = 1, to = 10, by = 2)
+
+# Parellel
+
+tgrid_rf <- expand_grid(
+      mtry = mtry_r,
+      trees = trees_r,
+      min_n = min_n_r)
+
+registerDoParallel(cl)
+
+cv_rf <- wkfl_rf %>% 
+  tune_grid(
+    peng_cv,
+    grid = tgrid_rf,
+    metrics = metric_set(accuracy),
+    control = control_grid(save_pred = TRUE, verbose = TRUE, parallel_over = "everything") # Parellel
+  )
+
+best_rf <- show_best(cv_rf)
+
+fit_rf <- wkfl_rf %>% 
+  finalize_workflow(select_best(cv_rf, metric = 'accuracy')) %>% 
+  fit(data = penguins)
+
+cat(
+  "\n------------------------------------------------\n",
+  "Tuned Parameters:\nNumber of Predictors Sampled:",
+  best_rf$mtry[1] , "\nNumber of Trees: ",
+  best_rf$trees[1], "\nMinimum Data Points per Node: ", best_rf$min_n[1],
+  "\nAccuracy: ", best_rf$mean[1],
+  "\n------------------------------------------------\n"
+)
 
 ```
+
+### Now update your workflow to use "fancier" approaches for imputation. Rerun your CV.
+
+```{r fancyRF, warning=FALSE}
+# f for fancy
+rec_f <- recipe(penguins, species ~island + sex + bill_length_mm  + body_mass_g) %>% 
+  step_impute_bag(all_numeric(), all_factor()) %>% 
+  update_role(species, new_role = "outcome")
+
+wkfl_f <- workflow() %>% 
+  add_model(mod_rf) %>% 
+  add_recipe(rec_f)
+
+registerDoParallel(cl)
+
+peng_cv_f <- rec_f %>% prep() %>% juice() %>% vfold_cv(v = nfold)
+
+cv_f <- wkfl_f %>% 
+  tune_grid(
+    peng_cv_f,
+    grid = tgrid_rf,
+    metrics = metric_set(accuracy),
+    control = control_grid(save_pred = TRUE, verbose = TRUE, parallel_over = "everything") # Parellel
+  )
+
+best <- show_best(cv_f)
+
+# Print results
+
+cat(
+  "\n------------------------------------------------\n", 
+  "Tuned Parameters:\nNumber of Predictors Sampled:",
+  best$mtry[1] , "\nNumber of Trees: ",
+  best$trees[1], "\nMinimum Data Points per Node: ", best$min_n[1],
+  "\nAccuracy: ", best$mean[1], 
+  "\n------------------------------------------------\n"
+)
+
+```
+
+### How does this fancier imputation affect your performance?
+
+Fancier imputation helped accuracy a bit, but this may be because I changed the recipe slightly also.
+
+### Explain why it might be important to include imputation in cross validation (rather than finishing all of the data cleaning before you tune/train/validate).
+
+By cross-validating the imputation method, you can systematically ensure that you use the most effective method. This is better than just guessing " maybe KNN will work"
+
+# Boosting
+
+### Briefly explain how boosting extends/builds upon your work in Part 1.
+
+Boosting creates a forest of trees, but with the added benefit of allowing trees to inform one another.
+
+### Now use tidymodels to tune (with CV) a boosted tree. Make sure you tune the relevant parameters (what are they?).
+
+```{r boosting, warning=FALSE}
+
+# This chunk isn't running properly, figure out tomorrow
+
+mod_b <- boost_tree(
+  mode = "classification",
+  engine = "xgboost",
+  mtry = tune(),
+  trees = tune(),
+  min_n = tune(),
+  learn_rate = tune(),
+  tree_depth = tune(),
+)
+
+rec_b <- recipe(penguins, species ~island + sex + bill_length_mm  + body_mass_g) %>% 
+  step_impute_bag(all_numeric(), all_factor()) %>% 
+  update_role(species, new_role = "outcome") %>% 
+  step_dummy(all_factor_predictors())
+
+# Define parameter ranges
+mtry_b = seq(from = 1, to = ncol(penguins), length.out = ncol(penguins))
+trees_b = floor(10^seq(from = 0, to = 3, by = 0.5))
+min_n_b = seq(from = 1, to = 10, by = 2)
+learn_rate_b = (10^seq(from = -4, to = 0, by = 0.5))
+tree_depth_b = seq(from=1,to=10,by=1)
+
+wkfl_b <-workflow() %>% 
+  add_model(mod_b) %>% 
+  add_recipe(rec_b)
+
+cl <- makeCluster(detectCores() - 1)
+registerDoParallel(cl)
+
+tgrid_b <- expand_grid(
+      mtry = mtry_b,
+      trees = trees_b,
+      min_n = min_n_b,
+      learn_rate = learn_rate_b,
+      tree_depth = tree_depth_b)
+
+cv_b <- wkfl_b %>% 
+  tune_grid(
+    peng_cv_f,
+    grid = tgrid_b,
+    metrics = metric_set(accuracy),
+    control = control_grid(save_pred = TRUE, verbose = TRUE, parallel_over = "everything") # Parellel
+  )
+
+stopCluster(cl)
+
+best_b <- show_best(cv_b)
+
+# Print results
+
+cat(
+  "\n------------------------------------------------\n", 
+  "Tuned Parameters:\nNumber of Predictors Sampled:",
+  best_b$mtry[1] , "\nNumber of Trees: ",
+  best_b$trees[1], "\nMinimum Data Points per Node: ", best_b$min_n[1],
+  "\nAccuracy: ", best_b$mean[1], 
+  "\nShrinkage Parameter: ", best_b$learn_rate[1],
+  "\nTree Depth: ", best_b$tree_depth[1],
+  "\n------------------------------------------------\n"
+)
+
+```
+
+
 
 
 
