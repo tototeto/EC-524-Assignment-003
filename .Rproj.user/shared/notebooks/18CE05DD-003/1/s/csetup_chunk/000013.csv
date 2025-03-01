@@ -1,0 +1,172 @@
+"1","
+"
+"1","  Binaries will be installed
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/rootSolve_1.8.2.4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 686377 bytes (670 KB)
+"
+"2","downloaded 670 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/lmom_3.0.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 573954 bytes (560 KB)
+"
+"2","downloaded 560 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/mvtnorm_1.2-4.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 752982 bytes (735 KB)
+"
+"2","downloaded 735 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/expm_0.999-9.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 214713 bytes (209 KB)
+"
+"2","downloaded 209 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/gld_2.6.6.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 237798 bytes (232 KB)
+"
+"2","downloaded 232 KB
+
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/DescTools_0.99.54.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 5692431 bytes (5.4 MB)
+"
+"2","downloaded 5.4 MB
+
+"
+"1","package ‘rootSolve’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘lmom’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘mvtnorm’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘expm’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘gld’ successfully unpacked and MD5 sums checked
+"
+"1","package ‘DescTools’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpqEwMK7\downloaded_packages"
+"1",""
+"1","
+"
+"2","installing the source package ‘Exact’
+
+"
+"2","trying URL 'https://cran.rstudio.com/src/contrib/Exact_3.3.tar.gz'
+"
+"2","Content type 'application/x-gzip'"
+"2"," length 44900 bytes (43 KB)
+"
+"2","downloaded 43 KB
+
+"
+"1","* installing *source* package 'Exact' ...
+"
+"1","** package 'Exact' successfully unpacked and MD5 sums checked
+"
+"1","** using staged installation
+"
+"1","** R
+"
+"1","** inst
+"
+"1","** byte-compile and prepare package for lazy loading
+"
+"1","** help
+"
+"1","*** installing help indices
+"
+"1","** building package indices
+"
+"1","** testing if installed package can be loaded from temporary location
+"
+"1","** testing if installed package can be loaded from final location
+"
+"1","** testing if installed package keeps a record of temporary installation path
+"
+"1","* DONE (Exact)
+"
+"2","
+"
+"2",""
+"2","The downloaded source packages are in
+	‘C:\Users\totot\AppData\Local\Temp\RtmpqEwMK7\downloaded_packages’"
+"2",""
+"2","
+"
+"2","
+DescTools installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.2’
+(as ‘lib’ is unspecified)
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/rpart.plot_3.1.2.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 1035366 bytes (1011 KB)
+"
+"2","downloaded 1011 KB
+
+"
+"1","package ‘rpart.plot’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpqEwMK7\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+rpart.plot installed
+"
+"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.2’
+(as ‘lib’ is unspecified)
+"
+"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/doParallel_1.0.17.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 191868 bytes (187 KB)
+"
+"2","downloaded 187 KB
+
+"
+"1","package ‘doParallel’ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\totot\AppData\Local\Temp\RtmpqEwMK7\downloaded_packages"
+"1",""
+"1","
+"
+"2","
+doParallel installed
+"
+"0","# Load the penguin data"
+"0","data('penguins')"
+"0",""
+"0","penguins %<>% clean_names()"

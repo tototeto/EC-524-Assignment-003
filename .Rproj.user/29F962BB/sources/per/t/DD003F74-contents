@@ -1,0 +1,277 @@
+---
+title: '003'
+author: "Tom Ben-Shahar"
+date: "March 3, 2025"
+output:
+  html_document:
+    df_print: paged
+---
+```{R Setup, warning=FALSE}
+# Load packages
+library(pacman)
+p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel)
+# Load the penguin data
+data('penguins')
+
+penguins %<>% clean_names()
+```
+
+# Data Cleaning
+
+### Use skimr to check out the data. How many species do we have? Are they fairly balanced in the data? Why does it matter?
+
+```{r DataClean1, warning=FALSE}
+skim(penguins)
+
+ggplot(penguins, aes(x = species)) +
+  geom_bar(fill = "cyan4", color = "black") +
+  labs(title = "Number of Penguins by Species",
+       x = "Species",
+       y = "Count") +
+  theme_minimal()
+```
+
+Penguins species are not equally represented in the data, with some species having more than twice as many observations as others.
+
+### What is imputation?
+
+Imputation is the process for handling missing data in which the values missing are replaced with guesses based on similar data points.
+
+### Hopefully you noticed we have some missing data. Let's impute. By hand. Since we're doing it by hand, let's start simply. For categorical variables, you can use the modal class. For numeric, let's use the median.
+
+```{r HandImputation, warning=FALSE}
+pen_imp_hand <- penguins %>% 
+  mutate(
+    # Numeric
+    bill_length_mm = if_else(is.na(bill_length_mm), mean(bill_length_mm, na.rm = TRUE), bill_length_mm),
+    bill_depth_mm = if_else(is.na(bill_depth_mm), mean(bill_depth_mm, na.rm = TRUE), bill_depth_mm),
+    flipper_length_mm = if_else(is.na(flipper_length_mm), mean(flipper_length_mm, na.rm = TRUE), flipper_length_mm),
+    body_mass_g = if_else(is.na(body_mass_g), mean(body_mass_g, na.rm = TRUE), body_mass_g),
+    
+    # Categorical
+    sex = if_else(is.na(sex), Mode(sex, na.rm=TRUE), sex),
+    species = if_else(is.na(species), Mode(species, na.rm=TRUE), species),
+    island = if_else(is.na(island), Mode(island, na.rm=TRUE), island)
+  )
+```
+
+### Now repeat using tidymodels. Make a recipe and then prep and bake it. Check out the objects!
+
+```{r tidyImpute, warning=FALSE}
+rec_imp <- recipe(penguins) %>% 
+  step_impute_mean(all_numeric()) %>% 
+  step_impute_mode(all_factor())
+
+pen_imp_tidy <- rec_imp %>% prep() %>% juice()
+
+rec_imp
+
+skim(pen_imp_tidy)
+```
+
+### How could we be more sophisticated/clever about imputation? Why would it matter?
+
+We could do something more complicated than just mean/mode. For example, we could use a method like KNN to inform the imputation based on *similar* data points, not just all the data points. This could potentially give us more accurate imputations closer to realistic values.
+
+# Short Tree
+
+### For the moment, let's focus on the possible splits of the island variable. There are three islands. How many possible splits are there?
+
+Only 3, as you can separate any 1 from the other 2.
+
+### Try each split of island and then calculate the split's (1) accuracy and (2) gini.
+
+```{r manualSplits, warning=FALSE}
+# Find the islands
+islands = penguins$island |> unique()
+
+suppress <- lapply(X = islands, FUN = function(i) {
+
+  grp1 = penguins |> filter(island == i)
+  grp2 = penguins |> filter(island != i)
+  # Find the modal species in each group
+  species1 = grp1$species |> fmode()
+  species2 = grp2$species |> fmode()
+  # Calculate accuracy
+  print(paste("Accuracy, ", i, ": ", fmean(grp1$species == species1)))
+  print(paste("Accuracy, ", i, ": ", fmean(grp2$species == species2)))
+  # Calculate gini
+  g1 = grp1$species |> table() |> prop.table()
+  g2 = grp2$species |> table() |> prop.table()
+  gini1 = sum(g1 * (1 - g1))
+  gini2 = sum(g2 * (1 - g2))
+  print(paste("Gini, ", i, ": ", (gini1 + gini2)/2))
+})
+```
+
+### Repeat 1.2 but for the sex variable.
+
+```{r giniSex, warning=FALSE}
+# Find the sex
+sex = penguins$sex |> unique()
+
+suppress_2 <- lapply(X = sex, FUN = function(i) {
+
+  grp1 = penguins |> filter(sex == i)
+  grp2 = penguins |> filter(sex != i)
+  # Find the modal species in each group
+  species1 = grp1$species |> fmode()
+  species2 = grp2$species |> fmode()
+  # Calculate accuracy
+  print(paste("Accuracy, ", i, ": ", fmean(grp1$species == species1)))
+  print(paste("Accuracy, ", i, ": ", fmean(grp2$species == species2)))
+  # Calculate gini
+  g1 = grp1$species |> table() |> prop.table()
+  g2 = grp2$species |> table() |> prop.table()
+  gini1 = sum(g1 * (1 - g1))
+  gini2 = sum(g2 * (1 - g2))
+  print(paste("Gini, ", i, ": ", (gini1 + gini2)/2))
+})
+```
+
+I have absolutely no idea why this is returning a third set of statistics, as there are only two levels to the variable **sex**. 
+
+### Which variable and split would you make? Why?
+
+I would split **island** by *Biscoe* and *Not Biscoe*, as this seems to provide the best accuracy and similar Gini compared to other splits.
+
+### We would typically want to consider all possible splits for the numeric variables as well. Explain (or code) an approach that would try all of the splits for bill_length_mm.
+
+```{r numericSplitManual, warning=FALSE}
+# Use imputed values
+penguins <- pen_imp_tidy
+
+# Define resolution
+res = 1
+
+# Define range
+range = seq(from=min(penguins$bill_length_mm),to=(max(penguins$bill_length_mm)), by = res)
+
+suppress_3 <- lapply(X = range, FUN = function(i) {
+  
+  p_low <- penguins %>% filter(bill_length_mm <= i)
+  p_high <- penguins %>% filter(bill_length_mm > i) 
+  mode_low <- Mode(as.character(p_low$species))
+  mode_high <- Mode(as.character(p_high$species))
+  acc_df <- penguins %>% select(bill_length_mm, species)
+  acc_df %<>% mutate(
+    pred = factor(ifelse(bill_length_mm <= i, mode_low, mode_high))
+  ) 
+  levels(acc_df$pred) <- c("Adelie", "Chinstrap",  "Gentoo")
+  a = accuracy(acc_df, truth = species, estimate = pred)
+  print(paste("Accuracy, ", i, ": ", a[3]))
+})
+```
+
+# **Bigger** Tree
+
+### Use tidymodels to grow a tree (actually multiple trees). Remember: We can (need to) tune the cost complexity (cost_complexity) to try to restrict the tree from overfitting.
+
+```{r treeModel, warning=FALSE}
+set.seed(981598345)
+# Reload data
+data('penguins')
+
+# Define Recipe
+
+rec_1 <- recipe(penguins, species ~ island + sex + bill_length_mm) %>% 
+  step_impute_mean(all_numeric()) %>% 
+  step_impute_mode(all_factor()) %>% 
+  update_role(species, new_role = "outcome")
+
+# Define Model
+
+mod_1 <- decision_tree(
+  mode = "classification",
+  engine = "rpart",
+  cost_complexity = tune(),
+  tree_depth = tune(),
+  min_n = tune()
+)
+
+# Define Workflow
+
+wkfl_1 <- workflow() %>% 
+  add_model(mod_1) %>% 
+  add_recipe(rec_1)
+
+# Cross Validation sets
+nfold = 5
+peng_cv <- rec_1 %>% prep %>% juice %>% vfold_cv(v = nfold)
+
+# Parameter ranges
+
+cost_comp = 10^seq(from = -4, to = 0, by = 0.5)
+depth = seq(from = 1, to = 15, by = 1)
+mn = seq(from = 1, to = 10, by = 2)
+
+# Parellel
+
+tgrid <- expand_grid(
+      cost_complexity = cost_comp,
+      tree_depth = depth,
+      min_n = mn)
+
+# rf_tuning = mclapply(
+#   x = 1:nrow(tgrid),
+#   FUN 
+# )
+
+# cross validate
+
+# Detect the number of available cores
+num_cores <- detectCores()
+
+# Register parallel backend
+cl <- makeCluster(num_cores - 1)
+registerDoParallel(cl)
+
+cv <- wkfl_1 %>% 
+  tune_grid(
+    peng_cv,
+    grid = tgrid,
+    metrics = metric_set(accuracy),
+    control = control_grid(save_pred = TRUE, verbose = TRUE, parallel_over = "everything") # Parellel
+  )
+
+fit_1 <- wkfl_1 %>% 
+  finalize_workflow(select_best(cv, metric = 'accuracy')) %>% 
+  fit(data = penguins)
+
+rpart.plot(
+  fit_1$fit$fit$fit,
+  extra = 104,
+  box.palette = "RdPu",
+  branch.lty = 4,
+  shadow.col = "gray",
+  nn = TRUE,
+  cex = 0.5
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

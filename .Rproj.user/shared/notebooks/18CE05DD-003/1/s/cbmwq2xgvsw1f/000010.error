@@ -1,0 +1,1 @@
+{"frames":[{"func":"recipe(penguins) %>% step_impute_mean(all_numeric()) %>% step_impute_mode(all_factor())","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in step_impute_mode(., all_factor()) : \n  could not find function \"step_impute_mode\"\n"}
