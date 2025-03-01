@@ -10,6 +10,7 @@ output:
 # Load packages
 library(pacman)
 p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel)
+library(tidymodels)
 # Load the penguin data
 data('penguins')
 
