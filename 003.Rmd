@@ -9,7 +9,7 @@ output:
 ```{R Setup, warning=FALSE}
 # Load packages
 library(pacman)
-p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor)
+p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel)
 # Load the penguin data
 data('penguins')
 
@@ -24,7 +24,7 @@ penguins %<>% clean_names()
 skim(penguins)
 
 ggplot(penguins, aes(x = species)) +
-  geom_bar(fill = "skyblue", color = "black") +
+  geom_bar(fill = "cyan4", color = "black") +
   labs(title = "Number of Penguins by Species",
        x = "Species",
        y = "Count") +
@@ -163,17 +163,18 @@ suppress_3 <- lapply(X = range, FUN = function(i) {
 })
 ```
 
-# *Bigger* Tree
+# **Bigger** Tree
 
 ### Use tidymodels to grow a tree (actually multiple trees). Remember: We can (need to) tune the cost complexity (cost_complexity) to try to restrict the tree from overfitting.
 
 ```{r treeModel, warning=FALSE}
+set.seed(981598345)
 # Reload data
 data('penguins')
 
 # Define Recipe
 
-rec_1 <- recipe(penguins) %>% 
+rec_1 <- recipe(penguins, species ~ island + sex + bill_length_mm) %>% 
   step_impute_mean(all_numeric()) %>% 
   step_impute_mode(all_factor()) %>% 
   update_role(species, new_role = "outcome")
@@ -200,28 +201,52 @@ peng_cv <- rec_1 %>% prep %>% juice %>% vfold_cv(v = nfold)
 
 # Parameter ranges
 
-cost_comp = c(0.01, 0.1) # 10^seq(from = -3, to = -1, by = 1)
-depth = c(1, 2) #seq(from = 1, to = 10, by = 2)
-mn = c(1,2) #seq(from = 1, to = 10, by = 2)
+cost_comp = 10^seq(from = -4, to = 0, by = 0.5)
+depth = seq(from = 1, to = 15, by = 1)
+mn = seq(from = 1, to = 10, by = 2)
+
+# Parellel
+
+tgrid <- expand_grid(
+      cost_complexity = cost_comp,
+      tree_depth = depth,
+      min_n = mn)
+
+# rf_tuning = mclapply(
+#   x = 1:nrow(tgrid),
+#   FUN 
+# )
 
 # cross validate
+
+# Detect the number of available cores
+num_cores <- detectCores()
+
+# Register parallel backend
+cl <- makeCluster(num_cores - 1)
+registerDoParallel(cl)
 
 cv <- wkfl_1 %>% 
   tune_grid(
     peng_cv,
-    grid = expand_grid(
-      cost_complexity = cost_comp,
-      tree_depth = depth,
-      min_n = mn),
-    metrics = metric_set(accuracy)
+    grid = tgrid,
+    metrics = metric_set(accuracy),
+    control = control_grid(save_pred = TRUE, verbose = TRUE, parallel_over = "everything") # Parellel
   )
 
 fit_1 <- wkfl_1 %>% 
   finalize_workflow(select_best(cv, metric = 'accuracy')) %>% 
   fit(data = penguins)
 
-### Ask about this in lab!
-
+rpart.plot(
+  fit_1$fit$fit$fit,
+  extra = 104,
+  box.palette = "RdPu",
+  branch.lty = 4,
+  shadow.col = "gray",
+  nn = TRUE,
+  cex = 0.5
+)
 ```
 
 

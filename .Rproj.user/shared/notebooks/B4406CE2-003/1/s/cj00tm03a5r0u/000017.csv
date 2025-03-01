@@ -1,8 +1,0 @@
-"2","Error in gsub(""^\\s+|\\s+$"", """", y) : input string 1 is invalid
-"
-"0","ggplot(penguins, aes(x = species)) +"
-"0","  geom_bar(fill = ""skyblue"", color = ""black"") +"
-"0","  labs(title = ""Number of Penguins by Species"","
-"0","       x = ""Species"","
-"0","       y = ""Count"") +"
-"0","  theme_minimal()"

@@ -1,88 +1,0 @@
-"0","# Reload data"
-"0","data('penguins')"
-"0",""
-"0","# Define Recipe"
-"0",""
-"0","rec_1 <- recipe(penguins) %>% "
-"0","  step_impute_mean(all_numeric()) %>% "
-"0","  step_impute_mode(all_factor()) %>% "
-"0","  update_role(species, new_role = ""outcome"")"
-"0",""
-"0","# Define Model"
-"0",""
-"0","mod_1 <- decision_tree("
-"0","  mode = ""classification"","
-"0","  engine = ""rpart"","
-"0","  cost_complexity = tune(),"
-"0","  tree_depth = tune(),"
-"0","  min_n = tune()"
-"0",")"
-"0",""
-"0","# Define Workflow"
-"0",""
-"0","wkfl_1 <- workflow() %>% "
-"0","  add_model(mod_1) %>% "
-"0","  add_recipe(rec_1)"
-"0",""
-"0","# Cross Validation sets"
-"0","nfold = 5"
-"0","peng_cv <- rec_1 %>% prep %>% juice %>% vfold_cv(v = nfold)"
-"0",""
-"0","# Parameter ranges"
-"0",""
-"0","cost_comp = c(0.01, 0.1) # 10^seq(from = -3, to = -1, by = 1)"
-"0","depth = c(1, 2) #seq(from = 1, to = 10, by = 2)"
-"0","mn = c(1,2) #seq(from = 1, to = 10, by = 2)"
-"0",""
-"0","# cross validate"
-"0",""
-"0","cv <- wkfl_1 %>% "
-"0","  tune_grid("
-"0","    peng_cv,"
-"0","    grid = expand_grid("
-"0","      cost_complexity = cost_comp,"
-"0","      tree_depth = depth,"
-"0","      min_n = mn),"
-"0","    metrics = metric_set(accuracy)"
-"0","  )"
-"2","→ [31m[1mA[22m[39m | [31merror[39m:   result would be too long a vector
-"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x1"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x3"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x4"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x5"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x7"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x9"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x10"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x11"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x13"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x15"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x17"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x19"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x21"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x23"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x25"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x26"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x27"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x29"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x31"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x33"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x34"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x36"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x37"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x39"
-"2","There were issues with some computations   [1m[31mA[39m[22m: x40"
-"2","
-"
-"0","fit_1 <- wkfl_1 %>% "
-"0","  finalize_workflow(select_best(cv, metric = 'accuracy')) %>% "
-"0","  fit(data = penguins)"
-"1","[1m[33mError[39m in `estimate_tune_results()`:[22m
-[33m![39m All models failed. Run `show_notes(.Last.tune.result)` for more information.
-Backtrace:
-[90m  1. [39m... %>% fit(data = penguins)
-[90m  6. [39m[1mtune[22m:::select_best.tune_results(cv, metric = ""accuracy"")
-[90m  8. [39mtune:::show_best.tune_results(...)
-[90m  9. [39mtune::.filter_perf_metrics(x, metric, eval_time)
-[90m 10. [39m[1m[94mtune::estimate_tune_results([39m[22mx[1m[94m)[39m[22m
-"

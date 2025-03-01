@@ -1,18 +1,26 @@
-"0","suppress_3 <- lapply(X = range, FUN = function(i) {
-  
-  p_low <- penguins %>% filter(bill_length_mm <= i)
-  p_high <- penguins %>% filter(bill_length_mm > i) 
-  mode_low <- Mode(as.character(p_low$species))
-  mode_high <- Mode(as.character(p_high$species))
-  acc_df <- penguins %>% select(bill_length_mm, species)
-  acc_df %<>% mutate(
-    pred = factor(ifelse(bill_length_mm <= i, mode_low, mode_high))
-  ) 
-  levels(acc_df$pred) <- c(""Adelie"", ""Chinstrap"",  ""Gentoo"")
-  a = accuracy(acc_df, truth = species, estimate = pred)
-  print(paste(""Accuracy, "", i, "": "", a[3]))
-})
-"
+"0","# Use imputed values"
+"0","penguins <- pen_imp_tidy"
+"0",""
+"0","# Define resolution"
+"0","res = 1"
+"0",""
+"0","# Define range"
+"0","range = seq(from=min(penguins$bill_length_mm),to=(max(penguins$bill_length_mm)), by = res)"
+"0",""
+"0","suppress_3 <- lapply(X = range, FUN = function(i) {"
+"0","  "
+"0","  p_low <- penguins %>% filter(bill_length_mm <= i)"
+"0","  p_high <- penguins %>% filter(bill_length_mm > i) "
+"0","  mode_low <- Mode(as.character(p_low$species))"
+"0","  mode_high <- Mode(as.character(p_high$species))"
+"0","  acc_df <- penguins %>% select(bill_length_mm, species)"
+"0","  acc_df %<>% mutate("
+"0","    pred = factor(ifelse(bill_length_mm <= i, mode_low, mode_high))"
+"0","  ) "
+"0","  levels(acc_df$pred) <- c(""Adelie"", ""Chinstrap"",  ""Gentoo"")"
+"0","  a = accuracy(acc_df, truth = species, estimate = pred)"
+"0","  print(paste(""Accuracy, "", i, "": "", a[3]))"
+"0","})"
 "1","[1]"
 "1"," ""Accuracy,  32.1 :  0.440233236151603"""
 "1","
