@@ -203,7 +203,7 @@ peng_cv <- rec_1 %>% prep %>% juice %>% vfold_cv(v = nfold)
 
 # Parameter ranges
 
-cost_comp = 10^seq(from = -4, to = 0, by = 0.5)
+cost_comp = 10^seq(from = -6, to = 0, by = 0.5)
 depth = seq(from = 1, to = 15, by = 1)
 mn = seq(from = 1, to = 10, by = 2)
 
@@ -236,6 +236,8 @@ cv <- wkfl_1 %>%
     control = control_grid(save_pred = TRUE, verbose = TRUE, parallel_over = "everything") # Parellel
   )
 
+show_best(cv)
+
 fit_1 <- wkfl_1 %>% 
   finalize_workflow(select_best(cv, metric = 'accuracy')) %>% 
   fit(data = penguins)
@@ -250,6 +252,22 @@ rpart.plot(
   cex = 0.5
 )
 ```
+
+The best models seem to choose very low cost_complexity, indicating that little pruning is needed.
+
+# More Trees
+
+### Briefly explain how you could build upon your work in Part 1 to grow a random forest.
+
+I could change the model from decision_tree() to random_forest()
+
+### Now use tidymodels to tune (with CV) a random forest. Make sure you tune the relevant parameters (what are they?).
+
+```{r randomForest, warning=FALSE}
+
+```
+
+
 
 
 
