@@ -34,11 +34,11 @@ ggplot(penguins, aes(x = species)) +
   theme_minimal()
 ```
 
-Penguins species are not equally represented in the data, with some species having more than twice as many observations as others.
+Penguins species are not equally represented in the data, with some species having more than twice as many observations as others. This affects how we should contextualize and interpret statistics like accuracy, as the null classifier could perform quite well.
 
 ### What is imputation?
 
-Imputation is the process for handling missing data in which the values missing are replaced with guesses based on similar data points.
+Imputation is the process for handling missing data in which the missing values are replaced with guesses based on similar data points.
 
 ### Hopefully you noticed we have some missing data. Let's impute. By hand. Since we're doing it by hand, let's start simply. For categorical variables, you can use the modal class. For numeric, let's use the median.
 
@@ -56,6 +56,8 @@ pen_imp_hand <- penguins %>%
     species = if_else(is.na(species), Mode(species, na.rm=TRUE), species),
     island = if_else(is.na(island), Mode(island, na.rm=TRUE), island)
   )
+
+skim(pen_imp_hand)
 ```
 
 ### Now repeat using tidymodels. Make a recipe and then prep and bake it. Check out the objects!
@@ -111,12 +113,12 @@ suppress <- lapply(X = islands, FUN = function(i) {
 
 ```{r giniSex, warning=FALSE}
 # Find the sex
-sex = penguins$sex |> unique()
+sex = pen_imp_tidy$sex |> unique()
 
 suppress_2 <- lapply(X = sex, FUN = function(i) {
 
-  grp1 = penguins |> filter(sex == i)
-  grp2 = penguins |> filter(sex != i)
+  grp1 = pen_imp_tidy |> filter(sex == i)
+  grp2 = pen_imp_tidy |> filter(sex != i)
   # Find the modal species in each group
   species1 = grp1$species |> fmode()
   species2 = grp2$species |> fmode()
@@ -132,7 +134,8 @@ suppress_2 <- lapply(X = sex, FUN = function(i) {
 })
 ```
 
-I have absolutely no idea why this is returning a third set of statistics, as there are only two levels to the variable **sex**.
+```         
+```
 
 ### Which variable and split would you make? Why?
 
@@ -449,34 +452,4 @@ cat(
 
 ### How does boosting compare to random forests?
 
-Accuracy for both models was identical. However, random forests ran significantly faster, so in that sense there are some efficiency gains. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Accuracy for both models was identical. However, random forests ran significantly faster, so in that sense there are some efficiency gains.

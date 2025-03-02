@@ -11,3 +11,27 @@
 "0","    species = if_else(is.na(species), Mode(species, na.rm=TRUE), species),"
 "0","    island = if_else(is.na(island), Mode(island, na.rm=TRUE), island)"
 "0","  )"
+"0",""
+"0","skim(pen_imp_hand)"
+"1","── Data Summary ────────────────────────
+"
+"1","                           Values      
+"
+"1","Name                       pen_imp_hand
+"
+"1","Number of rows             344         
+"
+"1","Number of columns          7           
+"
+"1","_______________________                
+"
+"1","Column type frequency:                 
+"
+"1","  factor                   3           
+"
+"1","  numeric                  4           
+"
+"1","________________________               
+"
+"1","Group variables            None        
+"
