@@ -1,26 +1,8 @@
-"0","p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel, ranger, xgboost)
-"
-"2","Installing package into ‘C:/Users/totot/AppData/Local/R/win-library/4.4’
-(as ‘lib’ is unspecified)
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.4/xgboost_1.7.8.1.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 2478937 bytes (2.4 MB)
-"
-"2","downloaded 2.4 MB
-
-"
-"1","package ‘xgboost’ successfully unpacked and MD5 sums checked
-"
-"1","
-"
-"1",""
-"1","The downloaded binary packages are in
-	C:\Users\totot\AppData\Local\Temp\RtmpOkJChu\downloaded_packages"
-"1",""
-"1","
-"
-"2","
-xgboost installed
-"
+"0","# Load packages"
+"0","library(pacman)"
+"0","p_load(palmerpenguins, tidymodels, tidyverse, magrittr, skimr, DescTools, collapse, janitor, rpart, rpart.plot, doParallel, ranger, xgboost)"
+"0","library(tidymodels)"
+"0","# Load the penguin data"
+"0","data('penguins')"
+"0",""
+"0","penguins %<>% clean_names()"

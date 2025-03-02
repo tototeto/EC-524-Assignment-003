@@ -260,7 +260,7 @@ The best models seem to choose very low cost_complexity, indicating that little 
 
 ### Briefly explain how you could build upon your work in Part 1 to grow a random forest.
 
-I could change the model from decision_tree() to random_forest()
+I could change the model from decision_tree() to rand_forest()
 
 ### Now use tidymodels to tune (with CV) a random forest. Make sure you tune the relevant parameters (what are they?).
 
@@ -401,10 +401,10 @@ rec_b <- recipe(penguins, species ~island + sex + bill_length_mm  + body_mass_g)
 
 # Define parameter ranges
 mtry_b = seq(from = 1, to = ncol(penguins), length.out = ncol(penguins))
-trees_b = floor(10^seq(from = 0, to = 3, by = 0.5))
-min_n_b = seq(from = 1, to = 10, by = 2)
+trees_b = floor(10^seq(from = 0, to = 3, by = 1))
+min_n_b = seq(from = 1, to = 10, by = 5)
 learn_rate_b = (10^seq(from = -4, to = 0, by = 0.5))
-tree_depth_b = seq(from=1,to=10,by=1)
+tree_depth_b = seq(from=1,to=10,by=2)
 
 wkfl_b <-workflow() %>% 
   add_model(mod_b) %>% 
@@ -447,6 +447,9 @@ cat(
 
 ```
 
+### How does boosting compare to random forests?
+
+Accuracy for both models was identical. However, random forests ran significantly faster, so in that sense there are some efficiency gains. 
 
 
 
